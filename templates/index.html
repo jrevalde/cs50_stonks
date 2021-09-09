@@ -1,0 +1,40 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Index
+{% endblock %}
+
+{% block main %}
+    <table class="table table-striped">
+      <thead>
+          <th>Symbol</th>
+          <th>Name</th>
+          <th>Shares</th>
+          <th>Price</th>
+          <th>Total</th>
+
+      </thead>
+      <tfoot>
+        <tr>
+            <td colspan = "4"></td>
+            <td>{{cash_total}}</td>
+        </tr>
+
+      </tfoot>
+      <tbody>
+        {% for row in sum_list %}
+        <tr>
+          <td>{{row["symbol"]}}</td>
+          <td>{{row["name"]}}</td>
+          <td>{{row["shares"]}}</td>
+          <td>{{row["price"]}}</td>
+          <td>{{row["total"]}}</td>
+        </tr>
+        {% endfor %}
+        <tr>
+          <td colspan= "4">User Cash</td>
+          <td>{{cash}}</td>
+        </tr>
+      </tbody>
+    </table>
+{% endblock %}
